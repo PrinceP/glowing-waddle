@@ -167,7 +167,7 @@ if image_file is not None:
 		print(f"Error: {e}")
 
 	# Construct the URL to retrieve the file
-	if ocr_response_data['resultItems'] and len(ocr_response_data['resultItems'])>0 and len(ocr_response_data['resultItems'][0]['files']) > 0:
+	if ocr_response_data['resultItems'] is not None and len(ocr_response_data['resultItems'])>0 and len(ocr_response_data['resultItems'][0]['files']) > 0:
 		retrieve_url = ocr_response_data['resultItems'][0]['files'][0]['src']
 	else:
 		st.write("NO PDF generated")
