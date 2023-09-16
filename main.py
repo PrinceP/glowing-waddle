@@ -167,7 +167,11 @@ if image_file is not None:
 		print(f"Error: {e}")
 
 	# Construct the URL to retrieve the file
-	retrieve_url = ocr_response_data['resultItems'][0]['files'][0]['src']
+	if len(ocr_response_data['resultItems'][0]['files']) > 0:
+		retrieve_url = ocr_response_data['resultItems'][0]['files'][0]['src']
+	else:
+		st.write("NO PDF generated")
+		exit()
 
 	# Set the headers for the GET request
 	headers = {
